@@ -1,0 +1,50 @@
+body {
+	background-image: url(day-bg.jpg); 
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 100vh}
+
+.input-group {
+	margin: 1em auto;
+	max-width: 500px;
+}
+
+.heading{
+	padding-top: 20px;
+}
+.container {
+	text-align: center;
+}
+.min {
+	font-size: 1em;
+}
+.max {
+	font-size: 1em;
+}
+
+.temp {
+	font-size: 4em;
+}
+.description {
+	font-size: 3em;
+
+}
+.weather-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 80px;
+}
+
+.weather-info{
+	display: none;
+}
+.weather-info > p{
+	border-bottom: 1px solid white;
+	padding-bottom: 8px;
+}
+.city-name {
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}

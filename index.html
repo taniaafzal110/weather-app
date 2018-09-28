@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+	<title>Weather app</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/weather-icons-wind.css">
+	<link rel="stylesheet" href="css/weather-icons-wind.min.css">
+	<link rel="stylesheet" href="css/weather-icons.css">
+	<link rel="stylesheet" href="css/weather-icons.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
+	<link rel="icon" type="image/ico" href="Weather_icons_grey-03-512.png">
+	
+
+
+	
+</head>
+<body onload="initialiser()">
+
+
+	<div class="container">
+		<h1 class="heading">Get Weather Here</h1>
+
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="Enter city" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+
+			<div id="search-btn" class="input-group-append" onclick="getWeather()">
+				<span class="input-group-text btn btn-outline-dark" id="basic-addon2"><i class="fas fa-search"></i></span>
+			</div>
+		</div>
+
+
+		<div class="weather-info">
+			<h1 class="city-name"></h1>
+			<h3 class="temp"><span></span></h3>
+			<p class="description"></p>
+			<p class="temp-range"> 
+				<span class="min"></span> / <span class="max"></span></p>
+				<h3 class="weather-icon"></h3>
+				
+				<p>
+					<strong>Last Update:</strong>
+					<span class="update-time"></span>
+					(Pakistan Standard Time)
+				</p>
+			</div>
+		</div>
+	</body>
+	</html>
