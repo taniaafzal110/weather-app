@@ -9,48 +9,39 @@ function initialiser() {
 }
 
 function getWeather() {
-	document.querySelector(".weather-info").style.display = "block";
 
+   const cityName = document.querySelector("input").value;
 
-	const cityName = document.querySelector("input").value;
-
-	
+   
 
    $.ajax({
-     url: 
-     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=2115e9b330fea3fc21883c7208804397&units=metric`,
-     success: function(data) {
-      console.log(data);
-		//const isNight;
-		//if (isNight === true) {
-			//black background
-			//color white
-		//}else {
-			//orange background
-			//color black
+       url: 
+       `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=2115e9b330fea3fc21883c7208804397&units=metric`,
+       success: function(data) {
+          console.log(data);
+          
+          document.querySelector(".weather-info").style.display = "block";
+          document.querySelector(".city-name").innerHTML = data.name;
+          document.querySelector(".temp > span").innerHTML = `${data.main.temp}°C`;
+          document.querySelector(".description").innerHTML = data.weather[0].main;
+          document.querySelector(".min").innerHTML = `${data.main.temp_min}°C`;
+          document.querySelector(".max").innerHTML = `${data.main.temp_max}°C`;
 
-		//}
-		document.querySelector(".city-name").innerHTML = data.name;
-		document.querySelector(".temp > span").innerHTML = `${data.main.temp}°C`;
-		document.querySelector(".description").innerHTML = data.weather[0].main;
-		document.querySelector(".min").innerHTML = `${data.main.temp_min}°C`;
-		document.querySelector(".max").innerHTML = `${data.main.temp_max}°C`;
+          let updateTime = new Date();
+          let newUpdate = updateTime.toLocaleString();
+          document.querySelector(".update-time").innerHTML = newUpdate;
 
-       let updateTime = new Date();
-       let newUpdate = updateTime.toLocaleString();
-       document.querySelector(".update-time").innerHTML = newUpdate;
+          let calcTime = new Date();
+          let sunriseTime = new Date(data.sys.sunrise * 1000);
+          let sunsetTime = new Date(data.sys.sunset * 1000);
 
-       let calcTime = new Date();
-       let sunriseTime = new Date(data.sys.sunrise * 1000);
-       let sunsetTime = new Date(data.sys.sunset * 1000);
+          if (calcTime > sunriseTime && calcTime < sunsetTime) {
+           document.querySelector("body").style["background-image"] = `url(day-bg.jpg)`;
+           document.querySelector("body").style["background-position"] = `bottom`;
+           document.querySelector("body").style["background-attachment"] = `fixed`;
+           document.querySelector("body").style.color = `black`;
 
-       if (calcTime > sunriseTime && calcTime < sunsetTime) {
-         document.querySelector("body").style["background-image"] = `url(day-bg.jpg)`;
-         document.querySelector("body").style["background-position"] = `bottom`;
-         document.querySelector("body").style["background-attachment"] = `fixed`;
-         document.querySelector("body").style.color = `black`;
-
-     } else {
+       } else {
         document.querySelector("body").style["background-image"] = `url(night-bg-2.jpg)`;
         document.querySelector("body").style["background-position"] = `bottom`;
         document.querySelector("body").style["background-attachment"] = `fixed`;
